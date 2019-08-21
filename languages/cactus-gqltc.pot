@@ -1,0 +1,46 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Total Counts for WPGraphQL\n"
+"POT-Creation-Date: 2019-08-21 12:36+0100\n"
+"PO-Revision-Date: 2019-08-21 12:35+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: total-counts-for-wpgraphql.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: total-counts-for-wpgraphql.php:56
+msgid "WPGraphQL must be active for \"total-counts-for-wpgraphql\" to work"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Total Counts for WPGraphQL"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/builtbycactus/Total-Counts-for-WPGraphQL"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Adds Total Count to the WPGraphQL Schema"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Built By Cactus"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://builtbycactus.co.uk/"
+msgstr ""
