@@ -12,7 +12,7 @@ Whilst this doesn't implement the `totalCount` field as per the [GraphQL docs](h
 
 To retrieve to total count, it's a simple case of requesting the `total` field with your `pageInfo`. See below:
 
-```json
+```js
 {
   posts(first:1) {
     edges {
