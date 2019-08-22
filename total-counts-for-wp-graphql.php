@@ -28,6 +28,7 @@ function init() {
 	} else {
 		add_filter( 'graphql_connection_page_info', __NAMESPACE__ . '\resolve_total_field', 10, 2 );
 		add_filter( 'graphql_post_object_connection_query_args', __NAMESPACE__ . '\count_total_rows' );
+		add_filter( 'graphql_user_connection_query_args', __NAMESPACE__ . '\count_total_rows' );
 		add_filter( 'graphql_register_types', __NAMESPACE__ . '\register_total_field' );
 	}
 }
@@ -53,7 +54,8 @@ function show_admin_notice() {
 		function () {
 			?>
             <div class="error notice">
-                <p><?php _e( 'WPGraphQL must be active for "total-counts-for-wpgraphql" to work', 'cactus-gqltc' ); ?></p>
+                <p><?php _e( 'WPGraphQL must be active for "total-counts-for-wpgraphql" to work',
+						'cactus-gqltc' ); ?></p>
             </div>
 			<?php
 		}
@@ -76,6 +78,10 @@ function resolve_total_field( $page_info, $connection ) {
 		if ( isset( $connection->get_query()->found_posts ) ) {
 			$page_info['total'] = (int) $connection->get_query()->found_posts;
 		}
+	} elseif ( $connection->get_query() instanceof \WP_User_Query ) {
+		if ( isset( $connection->get_query()->total_users ) ) {
+			$page_info['total'] = (int) $connection->get_query()->total_users;
+		}
 	}
 
 	return $page_info;
@@ -90,6 +96,7 @@ function resolve_total_field( $page_info, $connection ) {
  */
 function count_total_rows( $args ) {
 	$args['no_found_rows'] = false;
+	$args['count_total']   = true;
 
 	return $args;
 }
