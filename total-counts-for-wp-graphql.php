@@ -7,7 +7,7 @@
  * Author URI:      https://builtbycactus.co.uk/
  * Text Domain:     cactus-gqltc
  * Domain Path:     /languages
- * Version:         0.0.1
+ * Version:         0.0.2
  */
 
 namespace Cactus\GQLTC;
@@ -27,8 +27,7 @@ function init() {
 		add_action( 'admin_init', __NAMESPACE__ . '\show_admin_notice' );
 	} else {
 		add_filter( 'graphql_connection_page_info', __NAMESPACE__ . '\resolve_total_field', 10, 2 );
-		add_filter( 'graphql_post_object_connection_query_args', __NAMESPACE__ . '\count_total_rows' );
-		add_filter( 'graphql_user_connection_query_args', __NAMESPACE__ . '\count_total_rows' );
+		add_filter( 'graphql_connection_query_args', __NAMESPACE__ . '\count_total_rows' );
 		add_filter( 'graphql_register_types', __NAMESPACE__ . '\register_total_field' );
 	}
 }
