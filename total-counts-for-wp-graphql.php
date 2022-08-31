@@ -7,7 +7,7 @@
  * Author URI:      https://builtbycactus.co.uk/
  * Text Domain:     cactus-gqltc
  * Domain Path:     /languages
- * Version:         0.0.2
+ * Version:         0.0.3
  */
 
 namespace Cactus\GQLTC;
@@ -73,13 +73,20 @@ function show_admin_notice() {
  */
 function resolve_total_field( $page_info, $connection ) {
 	$page_info['total'] = null;
-	if ( $connection->get_query() instanceof \WP_Query ) {
-		if ( isset( $connection->get_query()->found_posts ) ) {
-			$page_info['total'] = (int) $connection->get_query()->found_posts;
+    
+    // Change the query property to be public then access it.
+    $reflector = new \ReflectionObject( $connection );
+    $property = $reflector->getProperty( 'query' );
+    $property->setAccessible( true );
+    $connectionQuery = $property->getValue( $connection );
+
+	if ( $connectionQuery instanceof \WP_Query ) {
+		if ( isset( $connectionQuery->found_posts ) ) {
+			$page_info['total'] = (int) $connectionQuery->found_posts;
 		}
-	} elseif ( $connection->get_query() instanceof \WP_User_Query ) {
-		if ( isset( $connection->get_query()->total_users ) ) {
-			$page_info['total'] = (int) $connection->get_query()->total_users;
+	} elseif ( $connectionQuery instanceof \WP_User_Query ) {
+		if ( isset( $connectionQuery->total_users ) ) {
+			$page_info['total'] = (int) $connectionQuery->total_users;
 		}
 	}
 
