@@ -1,0 +1,13 @@
+{
+  "name": "builtbycactus/total-counts-for-wp-graphql",
+  "description": "Adds the ability to fetch total post counts from WP-GraphQL",
+  "type": "wordpress-plugin",
+  "license": "GNU General Public License v2.0",
+  "version": "0.0.3",
+  "authors": [
+    {
+      "name": "Built By Cactus",
+      "homepage": "https://builtbycactus.co.uk/"
+    }
+  ]
+}
